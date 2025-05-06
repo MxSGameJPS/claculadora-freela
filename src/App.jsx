@@ -63,59 +63,57 @@ function CalculatorApp({ setCalculatedHoraTecnica }) {
       <h1 className={styles.titulo}>Calculadora de Hora Técnica</h1>
 
       <div className={styles.formGroup}>
-        <label htmlFor="salarioDesejado">
-          Salário Desejado (líquido mensal):
-        </label>
+        <label htmlFor="salarioDesejado">Salário (R$):</label>
         <input
           type="number"
           id="salarioDesejado"
           value={salarioDesejado}
           onChange={(e) => setSalarioDesejado(e.target.value)}
-          placeholder="Ex: 5000"
+          placeholder="5000"
         />
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="horasPorDia">Horas trabalhadas por dia:</label>
+        <label htmlFor="horasPorDia">Horas por dia:</label>
         <input
           type="number"
           id="horasPorDia"
           value={horasPorDia}
           onChange={(e) => setHorasPorDia(e.target.value)}
-          placeholder="Ex: 8"
+          placeholder="8"
         />
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="diasPorSemana">Dias trabalhados por semana:</label>
+        <label htmlFor="diasPorSemana">Dias por semana:</label>
         <input
           type="number"
           id="diasPorSemana"
           value={diasPorSemana}
           onChange={(e) => setDiasPorSemana(e.target.value)}
-          placeholder="Ex: 5"
+          placeholder="5"
         />
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="semanasFerias">Semanas de férias por ano:</label>
+        <label htmlFor="semanasFerias">Férias (semanas/ano):</label>
         <input
           type="number"
           id="semanasFerias"
           value={semanasFerias}
           onChange={(e) => setSemanasFerias(e.target.value)}
-          placeholder="Ex: 4"
+          placeholder="4"
         />
       </div>
 
-      <h2 className={styles.subtitulo}>Custos Fixos Mensais</h2>
+      <h2 className={styles.subtitulo}>Custos Fixos</h2>
       {custosFixos.map((custo, index) => (
         <div key={index} className={styles.custoFixoItem}>
           <input
             type="text"
             value={custo.nome}
             onChange={(e) => atualizarCustoFixo(index, "nome", e.target.value)}
-            placeholder="Nome do Custo (Ex: Internet)"
+            placeholder="Nome do Custo"
             className={styles.custoNome}
           />
           <input
@@ -141,7 +139,7 @@ function CalculatorApp({ setCalculatedHoraTecnica }) {
         onClick={adicionarCustoFixo}
         className={`${styles.botao} ${styles.botaoAdicionar}`}
       >
-        Adicionar Custo Fixo
+        Adicionar Custo
       </button>
 
       <button
@@ -149,12 +147,12 @@ function CalculatorApp({ setCalculatedHoraTecnica }) {
         onClick={calcularHoraTecnica}
         className={`${styles.botao} ${styles.botaoCalcular}`}
       >
-        Calcular Hora Técnica
+        Calcular
       </button>
 
       {horaTecnica !== null && (
         <div className={styles.resultado}>
-          <h3>Sua Hora Técnica Ideal é:</h3>
+          <h3>Sua Hora Técnica:</h3>
           <p>R$ {horaTecnica}</p>
         </div>
       )}
@@ -190,7 +188,7 @@ function App() {
       )}
 
       <footer className={styles.rodape}>
-        <p>Desenvolvido por Saulo Pavanello - React Developer</p>
+        <p>Desenvolvido por Saulo Pavanello</p>
         <div className={styles.footerNavLinks}>
           {currentPage !== "home" && (
             <button
@@ -205,7 +203,7 @@ function App() {
               onClick={() => navigateTo("hourCalculator")}
               className={styles.linkParaHome}
             >
-              Calc. Hora Técnica
+              Calcular Hora Técnica
             </button>
           )}
           {currentPage !== "projectCalculator" && currentPage !== "home" && (
@@ -213,7 +211,7 @@ function App() {
               onClick={() => navigateTo("projectCalculator")}
               className={styles.linkParaHome}
             >
-              Calc. Projeto
+              Calcular Valor do Projeto
             </button>
           )}
         </div>

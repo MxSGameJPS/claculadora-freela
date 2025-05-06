@@ -33,13 +33,13 @@ function ProjectValueCalculator({ initialHoraTecnica = "" }) {
     const ml = parseFloat(margemLucro) || 0; // Margem é opcional, 0 se não preenchida
 
     if (isNaN(ht) || isNaN(he) || ht <= 0 || he <= 0) {
-      setErro("Hora técnica e horas estimadas devem ser valores positivos.");
+      setErro("Valor-hora e horas estimadas necessários.");
       setValorBaseProjeto(null);
       setValorFinalProjeto(null);
       return;
     }
     if (ml < 0) {
-      setErro("A margem de lucro não pode ser negativa.");
+      setErro("Margem não pode ser negativa.");
       setValorBaseProjeto(null);
       setValorFinalProjeto(null);
       return;
@@ -54,12 +54,12 @@ function ProjectValueCalculator({ initialHoraTecnica = "" }) {
 
   return (
     <div className={styles.projectCalculatorContainer}>
-      <h1 className={appStyles.titulo}>Calculadora de Valor de Projeto</h1>
+      <h1 className={appStyles.titulo}>Calculadora de Projeto</h1>
 
       {erro && <p className={styles.erroMensagem}>{erro}</p>}
 
       <div className={appStyles.formGroup}>
-        <label htmlFor="horaTecnicaInput">Sua Hora Técnica (R$):</label>
+        <label htmlFor="horaTecnicaInput">Hora (R$):</label>
         <input
           type="number"
           id="horaTecnicaInput"
@@ -67,31 +67,31 @@ function ProjectValueCalculator({ initialHoraTecnica = "" }) {
           onChange={(e) =>
             handleInputChange(setHoraTecnicaInput, e.target.value)
           }
-          placeholder="Ex: 80.00"
+          placeholder="80"
           className={appStyles.formGroupInput} // Reutilizando estilo de input
         />
       </div>
 
       <div className={appStyles.formGroup}>
-        <label htmlFor="horasEstimadas">Horas Estimadas para o Projeto:</label>
+        <label htmlFor="horasEstimadas">Horas:</label>
         <input
           type="number"
           id="horasEstimadas"
           value={horasEstimadas}
           onChange={(e) => handleInputChange(setHorasEstimadas, e.target.value)}
-          placeholder="Ex: 30"
+          placeholder="30"
           className={appStyles.formGroupInput}
         />
       </div>
 
       <div className={appStyles.formGroup}>
-        <label htmlFor="margemLucro">Margem de Lucro (% - Opcional):</label>
+        <label htmlFor="margemLucro">Margem (%):</label>
         <input
           type="number"
           id="margemLucro"
           value={margemLucro}
           onChange={(e) => handleInputChange(setMargemLucro, e.target.value)}
-          placeholder="Ex: 20 (para 20%)"
+          placeholder="20"
           className={appStyles.formGroupInput}
         />
       </div>
@@ -101,27 +101,26 @@ function ProjectValueCalculator({ initialHoraTecnica = "" }) {
         onClick={calcularValorProjeto}
         className={`${appStyles.botao} ${appStyles.botaoCalcular} ${styles.botaoCalcularProjeto}`}
       >
-        Calcular Projeto
+        Calcular
       </button>
 
       {(valorBaseProjeto !== null || valorFinalProjeto !== null) && (
         <div className={`${appStyles.resultado} ${styles.resultadoProjeto}`}>
-          <h3>Estimativa do Projeto:</h3>
+          <h3>Estimativa:</h3>
           {valorBaseProjeto !== null && (
             <p>
-              Valor Base do Projeto: <strong>R$ {valorBaseProjeto}</strong>
+              Base: <strong>R$ {valorBaseProjeto}</strong>
             </p>
           )}
           {valorFinalProjeto !== null && parseFloat(margemLucro) > 0 && (
             <p>
-              Valor com Margem de Lucro ({margemLucro}%):{" "}
-              <strong>R$ {valorFinalProjeto}</strong>
+              +{margemLucro}%: <strong>R$ {valorFinalProjeto}</strong>
             </p>
           )}
           {valorFinalProjeto !== null &&
             (parseFloat(margemLucro) === 0 || margemLucro === "") && (
               <p>
-                Valor Final do Projeto: <strong>R$ {valorFinalProjeto}</strong>
+                Final: <strong>R$ {valorFinalProjeto}</strong>
               </p>
             )}
         </div>

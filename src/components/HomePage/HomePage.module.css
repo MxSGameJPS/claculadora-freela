@@ -2,43 +2,49 @@
 
 .homeContainer {
   max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 1rem auto;
+  padding: 1rem;
   color: var(--cor-texto-principal);
   text-align: center; /* Centraliza a maior parte do conteúdo */
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .header h1 {
-  font-size: 3rem; /* Maior para a home */
+  font-size: 2.5rem; /* Reduzido */
   color: var(--cor-dourado-brilhante);
   margin-bottom: 0.5rem;
   font-weight: 700;
+  word-wrap: break-word;
 }
 
 .subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--cor-texto-secundario);
   max-width: 600px;
-  margin: 0 auto 2rem auto; /* Centraliza e adiciona margem */
+  margin: 0 auto 1.5rem auto; /* Centraliza e adiciona margem */
 }
 
 .introSection,
 .aboutSection {
   background-color: var(--cor-preto-elemento);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 10px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   text-align: left; /* Alinha o texto à esquerda dentro das seções */
   border: 1px solid var(--cor-dourado-secundario);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .introSection h2,
 .aboutSection h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--cor-dourado-principal);
   margin-top: 0;
   margin-bottom: 1rem;
@@ -57,7 +63,7 @@
 .aboutSection {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .aboutText {
@@ -70,8 +76,8 @@
 }
 
 .profilePic {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%; /* Foto redonda */
   object-fit: cover; /* Garante que a foto cubra o espaço sem distorcer */
   border: 4px solid var(--cor-dourado-principal);
@@ -82,24 +88,24 @@
 .ctaButtonContainer {
   display: flex;
   justify-content: center;
-  gap: 1.5rem; /* Espaço entre os botões */
-  margin-top: 2rem;
+  gap: 1rem; /* Espaço entre os botões - reduzido */
+  margin-top: 1.5rem;
   flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
 }
 
 /* Botão principal da Home (Call to Action) */
 .ctaButton {
-  padding: 1rem 2.5rem;
+  padding: 0.8rem 1.5rem; /* Reduzido */
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1.15rem; /* Ajuste de tamanho */
+  font-size: 1rem; /* Reduzido */
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
     box-shadow 0.3s ease, border-color 0.3s ease;
-  /* display: inline-block;  Removido para o flex container cuidar */
-  min-width: 280px; /* Largura mínima para os botões */
+  min-width: 240px; /* Reduzido */
+  box-sizing: border-box;
 }
 
 .ctaButtonPrimary {
@@ -139,30 +145,120 @@
 /* Responsividade para a Home */
 @media (max-width: 768px) {
   .header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
+
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
+
   .aboutSection {
     flex-direction: column;
     text-align: center; /* Centraliza texto e imagem quando empilhado */
   }
+
   .aboutText {
     margin-bottom: 1.5rem;
   }
+
   .profilePic {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
   }
+
   .ctaButtonContainer {
     flex-direction: column; /* Empilha os botões */
     gap: 1rem;
   }
+
   .ctaButton {
-    font-size: 1rem;
-    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.2rem;
     width: 100%; /* Botões ocupam largura total */
     min-width: unset;
+  }
+
+  .introSection h2,
+  .aboutSection h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .homeContainer {
+    padding: 0.8rem;
+    margin: 0.5rem auto;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .introSection,
+  .aboutSection {
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .introSection h2,
+  .aboutSection h2 {
+    font-size: 1.3rem;
+  }
+
+  .introSection p,
+  .aboutSection p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .profilePic {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 360px) {
+  .homeContainer {
+    padding: 0.6rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .introSection,
+  .aboutSection {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .introSection h2,
+  .aboutSection h2 {
+    font-size: 1.2rem;
+  }
+
+  .introSection p,
+  .aboutSection p {
+    font-size: 0.85rem;
+  }
+
+  .profilePic {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+  }
+
+  .ctaButton {
+    font-size: 0.8rem;
+    padding: 0.7rem 1rem;
   }
 }
