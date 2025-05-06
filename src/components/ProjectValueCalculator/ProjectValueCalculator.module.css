@@ -1,0 +1,48 @@
+/* Estilos para ProjectValueCalculator.module.css */
+
+.projectCalculatorContainer {
+  /* Herda max-width, margin, padding, etc., do .calculatorContainer em App.module.css 
+     se for renderizado dentro de uma estrutura similar, 
+     ou podemos definir aqui se for uma página totalmente separada. 
+     Por enquanto, vamos assumir que será envolvido por .appGlobalContainer 
+     e .calculatorContainer (ou um similar) de App.jsx */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.botaoCalcularProjeto {
+  /* Se precisar de algum override específico para o botão de calcular desta página */
+  margin-top: 1.5rem !important; /* Ajuste para espaçamento se necessário */
+}
+
+.resultadoProjeto p {
+  font-size: 1.4rem; /* Ajustar tamanho da fonte para os resultados do projeto */
+  color: var(--cor-texto-principal);
+  margin-bottom: 0.8rem;
+}
+
+.resultadoProjeto p strong {
+  color: var(--cor-dourado-brilhante);
+  font-size: 1.5rem;
+}
+
+.erroMensagem {
+  background-color: rgba(231, 76, 60, 0.1); /* Fundo vermelho suave para erro */
+  color: var(--cor-erro, #e74c3c); /* Usa a variável de erro ou um fallback */
+  border: 1px solid var(--cor-erro, #e74c3c);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}

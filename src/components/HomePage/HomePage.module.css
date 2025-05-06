@@ -1,0 +1,168 @@
+/* Estilos para HomePage.jsx - Paleta Preto e Dourado */
+
+.homeContainer {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  color: var(--cor-texto-principal);
+  text-align: center; /* Centraliza a maior parte do conteúdo */
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 3rem; /* Maior para a home */
+  color: var(--cor-dourado-brilhante);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: var(--cor-texto-secundario);
+  max-width: 600px;
+  margin: 0 auto 2rem auto; /* Centraliza e adiciona margem */
+}
+
+.introSection,
+.aboutSection {
+  background-color: var(--cor-preto-elemento);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  text-align: left; /* Alinha o texto à esquerda dentro das seções */
+  border: 1px solid var(--cor-dourado-secundario);
+}
+
+.introSection h2,
+.aboutSection h2 {
+  font-size: 1.8rem;
+  color: var(--cor-dourado-principal);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--cor-dourado-secundario);
+  padding-bottom: 0.5rem;
+}
+
+.introSection p,
+.aboutSection p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--cor-texto-principal);
+  margin-bottom: 1rem;
+}
+
+.aboutSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.aboutText {
+  flex: 2; /* Ocupa mais espaço */
+}
+
+.aboutImageContainer {
+  flex: 1;
+  text-align: center; /* Centraliza a imagem no container dela */
+}
+
+.profilePic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; /* Foto redonda */
+  object-fit: cover; /* Garante que a foto cubra o espaço sem distorcer */
+  border: 4px solid var(--cor-dourado-principal);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); /* Sombra dourada suave */
+}
+
+/* Container para os botões Call to Action na Home */
+.ctaButtonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Espaço entre os botões */
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+}
+
+/* Botão principal da Home (Call to Action) */
+.ctaButton {
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.15rem; /* Ajuste de tamanho */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease, border-color 0.3s ease;
+  /* display: inline-block;  Removido para o flex container cuidar */
+  min-width: 280px; /* Largura mínima para os botões */
+}
+
+.ctaButtonPrimary {
+  composes: ctaButton;
+  border: 2px solid var(--cor-dourado-brilhante);
+  background-color: var(--cor-dourado-brilhante);
+  color: var(--cor-preto-fundo);
+}
+
+.ctaButtonPrimary:hover {
+  background-color: var(--cor-dourado-principal);
+  border-color: var(--cor-dourado-principal);
+  color: var(--cor-preto-fundo);
+  box-shadow: 0 5px 20px rgba(218, 165, 32, 0.4);
+  transform: translateY(-2px);
+}
+
+.ctaButtonSecondary {
+  composes: ctaButton;
+  border: 2px solid var(--cor-dourado-principal);
+  background-color: transparent;
+  color: var(--cor-dourado-principal);
+}
+
+.ctaButtonSecondary:hover {
+  background-color: var(--cor-dourado-principal);
+  border-color: var(--cor-dourado-principal);
+  color: var(--cor-preto-fundo);
+  box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+  transform: translateY(-2px);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+/* Responsividade para a Home */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .aboutSection {
+    flex-direction: column;
+    text-align: center; /* Centraliza texto e imagem quando empilhado */
+  }
+  .aboutText {
+    margin-bottom: 1.5rem;
+  }
+  .profilePic {
+    width: 150px;
+    height: 150px;
+  }
+  .ctaButtonContainer {
+    flex-direction: column; /* Empilha os botões */
+    gap: 1rem;
+  }
+  .ctaButton {
+    font-size: 1rem;
+    padding: 0.9rem 1.5rem;
+    width: 100%; /* Botões ocupam largura total */
+    min-width: unset;
+  }
+}

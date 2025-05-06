@@ -1,0 +1,294 @@
+/* src/App.module.css - Paleta Preto e Dourado */
+
+/* Reset global para o body */
+:global(body) {
+  margin: 0;
+  background-color: var(--cor-preto-fundo);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Consistência da fonte */
+}
+
+/* Cores da Paleta */
+:root {
+  --cor-preto-fundo: #1a1a1a; /* Um preto não tão absoluto */
+  --cor-preto-elemento: #2c2c2c; /* Para cards, inputs etc. */
+  --cor-dourado-principal: #daa520; /* GoldenRod */
+  --cor-dourado-secundario: #b8860b; /* DarkGoldenRod - para hover, bordas */
+  --cor-dourado-brilhante: #ffd700; /* Gold - para detalhes */
+  --cor-texto-principal: #f0f0f0; /* Branco suave */
+  --cor-texto-secundario: #b0b0b0; /* Cinza claro */
+  --cor-erro: #e74c3c;
+}
+
+.appGlobalContainer {
+  background-color: var(--cor-preto-fundo);
+  color: var(--cor-texto-principal);
+  min-height: 100vh;
+  padding: 0; /* Removido padding para o wrapper interno cuidar */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex; /* Para ajudar com o layout do rodapé */
+  flex-direction: column; /* Para ajudar com o layout do rodapé */
+}
+
+/* Novo wrapper para as seções de calculadora */
+.calculatorContainerWrapper {
+  flex-grow: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+  padding: 1rem; /* Padding que antes estava no appGlobalContainer */
+  width: 100%;
+  box-sizing: border-box;
+  display: flex; /* Para centralizar o calculatorContainer */
+  flex-direction: column; /* Para centralizar o calculatorContainer */
+  align-items: center; /* Para centralizar o calculatorContainer */
+}
+
+/* Estilo para o container da calculadora (hora e projeto) */
+.calculatorContainer {
+  max-width: 700px;
+  width: 100%; /* Para ocupar a largura do wrapper até o max-width */
+  margin-top: 2rem; /* Margem de cima para o container da calculadora */
+  margin-bottom: 2rem; /* Margem de baixo */
+  padding: 2.5rem;
+  background-color: var(--cor-preto-elemento);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--cor-dourado-secundario);
+}
+
+.titulo {
+  text-align: center;
+  color: var(--cor-dourado-principal);
+  margin-bottom: 2.5rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.subtitulo {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--cor-dourado-principal);
+  border-bottom: 2px solid var(--cor-dourado-secundario);
+  padding-bottom: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.formGroup {
+  margin-bottom: 1.8rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background-color: var(--cor-preto-fundo);
+  border: 1px solid var(--cor-dourado-secundario);
+  color: var(--cor-texto-principal);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus {
+  border-color: var(--cor-dourado-principal);
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.25); /* Sombra dourada */
+  outline: none;
+}
+
+.custoFixoItem {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  align-items: center;
+}
+
+.custoNome {
+  flex-grow: 1;
+}
+
+.custoValor {
+  width: 120px;
+}
+
+/* Estilização comum para botões */
+.botao {
+  padding: 0.85rem 1.7rem;
+  border: 1px solid var(--cor-dourado-principal);
+  background-color: var(--cor-dourado-principal);
+  color: var(--cor-preto-fundo);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: bold; /* Texto do botão em negrito para mais contraste */
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease,
+    border-color 0.2s ease;
+  text-align: center;
+}
+
+.botao:hover {
+  background-color: var(--cor-dourado-secundario);
+  border-color: var(--cor-dourado-secundario);
+  color: var(--cor-texto-principal);
+}
+
+.botao:active {
+  transform: translateY(1px);
+}
+
+.botaoAdicionar {
+  composes: botao;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.botaoRemover {
+  composes: botao;
+  background-color: transparent; /* Fundo transparente */
+  color: var(--cor-dourado-principal);
+  border: 1px solid var(--cor-dourado-principal);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.botaoRemover:hover {
+  background-color: var(--cor-dourado-principal);
+  color: var(--cor-preto-fundo);
+}
+
+.botaoCalcular {
+  composes: botao;
+  background-color: var(--cor-dourado-brilhante);
+  border-color: var(--cor-dourado-brilhante);
+  color: var(--cor-preto-fundo);
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.botaoCalcular:hover {
+  background-color: var(--cor-dourado-principal);
+  border-color: var(--cor-dourado-principal);
+}
+
+.resultado {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background-color: var(--cor-preto-elemento);
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--cor-dourado-secundario);
+}
+
+.resultado h3 {
+  margin-top: 0;
+  color: var(--cor-texto-secundario);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.resultado p {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--cor-dourado-brilhante);
+  margin-bottom: 0;
+}
+
+.rodape {
+  text-align: center;
+  margin-top: auto; /* Empurra o rodapé para baixo */
+  padding: 1.5rem;
+  border-top: 1px solid var(--cor-dourado-secundario);
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footerNavLinks {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.linkParaHome {
+  composes: botao;
+  background: transparent;
+  color: var(--cor-dourado-principal);
+  border: 1px solid var(--cor-dourado-principal);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.linkParaHome:hover {
+  background-color: var(--cor-dourado-principal);
+  color: var(--cor-preto-fundo);
+}
+
+/* Melhorias para responsividade */
+@media (max-width: 768px) {
+  /* Aumentado breakpoint para tables */
+  .calculatorContainerWrapper {
+    padding: 0.5rem; /* Menos padding em telas menores */
+  }
+  .calculatorContainer {
+    margin: 1rem auto;
+    padding: 1.5rem;
+  }
+
+  .titulo {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .subtitulo {
+    font-size: 1.3rem;
+  }
+
+  .formGroup input,
+  .botaoAdicionar,
+  .botaoCalcular {
+    font-size: 0.95rem;
+  }
+
+  .custoFixoItem {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .custoNome,
+  .custoValor {
+    width: 100%;
+  }
+
+  .custoValor {
+    margin-bottom: 0.5rem;
+  }
+
+  .resultado p {
+    font-size: 2rem;
+  }
+
+  .rodape {
+    padding: 1rem;
+  }
+  .footerNavLinks {
+    flex-direction: column; /* Empilha os links no rodapé */
+    gap: 0.5rem;
+  }
+  .linkParaHome {
+    width: 100%; /* Links ocupam toda a largura */
+  }
+}
