@@ -63,6 +63,4 @@ O objetivo é fornecer clareza financeira e ajudar o freelancer a cobrar um valo
 
 - React Developer
 
----
 
-_Este README foi gerado com o auxílio do Gemini._
